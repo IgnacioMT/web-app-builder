@@ -25,7 +25,6 @@
       templateNodes = componentTemplate.textNodes();
       visibleTextNodes = component.textNodes();
       outputNodes = templateNodes.clone();
-      console.log(outputNodes);
       $.each(settings.controller, replaceValues);
       $.each(outputNodes, evalExpressions);
     }
@@ -34,8 +33,6 @@
       if (typeof settings.controller[key] === typeof Function) {
         return;
       }
-
-      console.log(key);
 
       var templatePattern = new RegExp('{{\\s*(' + key + ')\\s*}}', 'mg');
       var inputList = component.find($('[data-model]'));

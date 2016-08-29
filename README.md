@@ -25,13 +25,23 @@ Create some simple templates. You can use **data-model** attribute to bind any c
 </div>
 
 <div class="two">
-    <textarea data-model="other"></textarea>
-    Other variable: {{ other }}
+    Note. Templates are not going to be replaced until it's initialization!
+    <br>
+    <input type="text" data-model="first">
+    <textarea data-model="second"></textarea>
+    2 different data models: {{ first }} {{ second }}
 </div>
 
 <custom-tag>
     This number should change dynamically each 3s: {{ randomNumber }}
 </custom-tag>
+
+<div class="math">
+    1 + 2 = {{ 1 + 2 }} <br>
+    2 - 2 = {{ 2 - 2 }} <br>
+    3 * 2 = {{ 3 * 2 }} <br>
+    4 / 2 = {{ 4 / 2 }}
+</div>
 ```
 
 Create your components and controllers. Any change in your controller variables will be reflected on your views
@@ -52,6 +62,10 @@ $(function () {
     template: '', // WIP
     controller: MyControllerC
   });
+  
+  $('.math').component({
+    controller: MyControllerD
+  });
 
   function MyControllerA() {
     var vm = this;
@@ -67,6 +81,8 @@ $(function () {
       vm.randomNumber = Math.random();
     }, 3000);
   }
+  
+  function MyControllerD() { }
 
 });
 ```
