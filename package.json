@@ -1,0 +1,25 @@
+{
+  "name": "web-app-builder",
+  "version": "1.0.0",
+  "description": "jQuery-based component-based web framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgnacioMT/web-app-builder.git"
+  },
+  "keywords": [
+    "jQuery",
+    "Components",
+    "Framework",
+    "web-development"
+  ],
+  "author": "J. Ignacio Martinez Taboada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgnacioMT/web-app-builder/issues"
+  },
+  "homepage": "https://github.com/IgnacioMT/web-app-builder#readme"
+}
