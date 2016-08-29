@@ -30,7 +30,7 @@ Create some simple templates. You can use **data-model** attribute to bind any c
 </div>
 ```
 
-Create your components and controllers
+Create your components and controllers. Any change in your controller variables will be reflected on your views
 
 ```javascript
 $(function () {
