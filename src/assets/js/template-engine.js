@@ -9,6 +9,7 @@
     var id = ++componentID;
     var component = this;
     var componentTemplate = component.clone();
+    var visibleTextNodes = null;
     var templateNodes = null;
     var outputNodes = null;
     var watchers = {};
@@ -22,8 +23,11 @@
 
     function refreshTemplate() {
       templateNodes = componentTemplate.textNodes();
+      visibleTextNodes = component.textNodes();
       outputNodes = templateNodes.clone();
+      console.log(outputNodes);
       $.each(settings.controller, replaceValues);
+      $.each(outputNodes, evalExpressions);
     }
 
     function replaceValues(key, value) {
@@ -31,15 +35,16 @@
         return;
       }
 
+      console.log(key);
+
       var templatePattern = new RegExp('{{\\s*(' + key + ')\\s*}}', 'mg');
-      var textNodes = component.textNodes();
       var inputList = component.find($('[data-model]'));
 
       if (templatePattern.test(componentTemplate.html())) {
         watchProperty(key);
       }
 
-      $.each(textNodes, function(index, textNode) {
+      $.each(visibleTextNodes, function(index, textNode) {
         var replacement = outputNodes[index].textContent.replace(templatePattern, value);
         textNode.nodeValue = replacement;
         outputNodes[index].nodeValue = replacement;
@@ -73,6 +78,22 @@
           refreshTemplate();
         }
       });
+    }
+
+    function evalExpressions(index, textNode) {
+      var templatePattern = /{{\s*[\d\-\.+*/\s]*\s*}}/mg;
+      var match;
+
+      do {
+        match = templatePattern.exec(textNode.nodeValue);
+        if (match) {
+          var expression = match[0].substr(2, match[0].length - 4);
+          var expressionResult = eval(expression).toString();
+          var replacement = outputNodes[index].textContent.replace(match[0], expressionResult);
+          textNode.nodeValue = replacement;
+          visibleTextNodes[index].nodeValue = replacement;
+        }
+      } while (match);
     }
 
     refreshTemplate();

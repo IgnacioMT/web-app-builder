@@ -2,7 +2,7 @@ html, body {
   margin: 0;
 }
 
-.one, .two, custom-tag {
+.one, .two, custom-tag, .math {
   background-color: #f2f2f2;
   border: #ccc;
   margin: 20px;

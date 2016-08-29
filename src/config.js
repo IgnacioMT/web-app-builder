@@ -14,6 +14,10 @@ $(function () {
     controller: MyControllerC
   });
 
+  $('.math').component({
+    controller: MyControllerD
+  });
+
   function MyControllerA() {
     var vm = this;
     vm.name = 'Ignacio';
@@ -28,5 +32,7 @@ $(function () {
       vm.randomNumber = Math.random();
     }, 3000);
   }
+
+  function MyControllerD() { }
 
 });
