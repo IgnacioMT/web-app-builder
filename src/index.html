@@ -7,47 +7,15 @@
   </head>
   <body>
 
-    <div class="one">
-      <input type="text" data-model="replace">
-      {{ replace }}
-      This should not be replaced.
-      <textarea data-model="replace"></textarea>
-    </div>
+  <div class="one">
+    <input type="text" data-model="name">
+    Hello, {{ name }}!
+  </div>
 
-    <div class="two">
-      before:
-      <input type="text" data-model="otherVar">
-      Other variable: {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-      {{ otherVar }}
-    </div>
+  <div class="two">
+    <textarea data-model="other"></textarea>
+      Other variable: {{ other }}
+  </div>
 
     <script src="libs/jquery/jquery-3.1.0.min.js"></script>
     <script src="components/crud-form/crud-form.js"></script>

@@ -11,12 +11,12 @@ $(function () {
 
   function MyControllerA() {
     var vm = this;
-    vm.replace = 'Hello world!';
+    vm.name = 'Ignacio';
   }
 
   function MyControllerB() {
     var vm = this;
-    vm.otherVar = 'other variable';
+    vm.other = 'Hello world!';
   }
 
 });
