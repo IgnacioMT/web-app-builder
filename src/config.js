@@ -9,14 +9,24 @@ $(function () {
     controller: MyControllerB
   });
 
+  $('custom-tag').component({
+    template: '', // WIP
+    controller: MyControllerC
+  });
+
   function MyControllerA() {
     var vm = this;
     vm.name = 'Ignacio';
   }
 
-  function MyControllerB() {
+  function MyControllerB() { }
+
+  function MyControllerC() {
     var vm = this;
-    vm.other = 'Hello world!';
+    vm.randomNumber = 0;
+    setInterval(function() {
+      vm.randomNumber = Math.random();
+    }, 3000);
   }
 
 });

@@ -28,6 +28,10 @@ Create some simple templates. You can use **data-model** attribute to bind any c
     <textarea data-model="other"></textarea>
     Other variable: {{ other }}
 </div>
+
+<custom-tag>
+    This number should change dynamically each 3s: {{ randomNumber }}
+</custom-tag>
 ```
 
 Create your components and controllers. Any change in your controller variables will be reflected on your views
@@ -44,14 +48,24 @@ $(function () {
     controller: MyControllerB
   });
 
+  $('custom-tag').component({
+    template: '', // WIP
+    controller: MyControllerC
+  });
+
   function MyControllerA() {
     var vm = this;
     vm.name = 'Ignacio';
   }
 
-  function MyControllerB() {
+  function MyControllerB() { }
+
+  function MyControllerC() {
     var vm = this;
-    vm.other = 'Hello world!';
+    vm.randomNumber = 0;
+    setInterval(function() {
+      vm.randomNumber = Math.random();
+    }, 3000);
   }
 
 });
