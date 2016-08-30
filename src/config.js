@@ -18,6 +18,10 @@ $(function () {
     controller: MyControllerD
   });
 
+  $('.nested').component({
+    controller: MyControllerE
+  });
+
   function MyControllerA() {
     var vm = this;
     vm.name = 'Ignacio';
@@ -34,5 +38,10 @@ $(function () {
   }
 
   function MyControllerD() { }
+
+  function MyControllerE() {
+    var vm = this;
+    vm.something = 'Something';
+  }
 
 });
